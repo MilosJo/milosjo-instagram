@@ -17,11 +17,7 @@ export default class Instagram extends React.Component {
     try {
       // Hack from https://stackoverflow.com/a/47243409/2217533
       const response = await fetch(
-        `https://www.instagram.com/graphql/query?query_id=17888483320059182&variables={"id":"${this.INSTAGRAM_ID}","first":${this.PHOTO_COUNT},"after":null}`,
-        {
-          'Access-Control-Allow-Credentials': true,
-          credentials: 'include',
-        }
+        `https://graph.instagram.com/me/media?fields=media_url,permalink,username&access_token=IGQVJWV2NiUGNWeUw4a3NPSXdrRXFqZAUh2M3pjLUVEQnJNODhRNG1TcVZAvdFdBZAjN0Y2hhQVJTMU5QODYyRS1CcGI3NTJmd0d2TFA1UEFKTG1PRlp2RW1oT0k4WU5Ybmp0UUc5RVUzZA1dYLUpfRGtQRwZDZD`
       );
       const { data } = await response.json();
       const photos = data.user.edge_owner_to_timeline_media.edges.map(({ node }) => {

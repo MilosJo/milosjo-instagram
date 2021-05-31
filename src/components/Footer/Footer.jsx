@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-scroll';
+import { Link as GatsbyLink } from 'gatsby';
+
 import PortfolioContext from '../../context/context';
 import GithubButtons from '../GithubButtons/GithubButtons';
 
@@ -36,6 +38,8 @@ const Footer = () => {
               );
             })}
         </div>
+        <GatsbyLink to="/privacy-policy">Privacy Policy</GatsbyLink>
+        <GatsbyLink to="/terms-of-use">Terms of Use</GatsbyLink>
         <hr />
         <p className="footer__text">
           © {new Date().getFullYear()} - Template developed by{' '}

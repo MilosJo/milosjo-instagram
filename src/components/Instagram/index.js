@@ -9,8 +9,11 @@ export default class Instagram extends React.Component {
   async componentDidMount() {
     try {
       // Hack from https://stackoverflow.com/a/47243409/2217533
+      // const response = await fetch(
+      //   `https://graph.instagram.com/me/media?fields=media_url,permalink,username,thumbnail_url&access_token=IGQVJWV2NiUGNWeUw4a3NPSXdrRXFqZAUh2M3pjLUVEQnJNODhRNG1TcVZAvdFdBZAjN0Y2hhQVJTMU5QODYyRS1CcGI3NTJmd0d2TFA1UEFKTG1PRlp2RW1oT0k4WU5Ybmp0UUc5RVUzZA1dYLUpfRGtQRwZDZD`
+      // );
       const response = await fetch(
-        `https://graph.instagram.com/me/media?fields=media_url,permalink,username,thumbnail_url&access_token=IGQVJWV2NiUGNWeUw4a3NPSXdrRXFqZAUh2M3pjLUVEQnJNODhRNG1TcVZAvdFdBZAjN0Y2hhQVJTMU5QODYyRS1CcGI3NTJmd0d2TFA1UEFKTG1PRlp2RW1oT0k4WU5Ybmp0UUc5RVUzZA1dYLUpfRGtQRwZDZD`
+        `https://api.instagram.com/oauth/authorize?client_id=4094412503950762&redirect_uri=https://milosjo-instagram.netlify.app&scope=user_profile,user_media&response_type=code`
       );
       const { data } = await response.json();
       console.log('data:', data);

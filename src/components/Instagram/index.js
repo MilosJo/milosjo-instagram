@@ -135,7 +135,7 @@ const Insta = () => {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
           'Access-Control-Allow-Headers':
-            'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+            'Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization',
         },
       })
       .then((data) => data.json())

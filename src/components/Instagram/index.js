@@ -111,6 +111,7 @@
 // }
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Card = styled.img`
   justify-self: center;
@@ -124,12 +125,12 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px;
 `;
-const url =
-  'https://www.instagram.com/graphql/query/?query_hash=42323d64886122307be10013ad2dcc44&variables={"id":1264743931,"first":6}';
+const url = 'https://www.instagram.com/milosjovancevic/channel/?__a=1';
 const Insta = () => {
   const [insta, setInsta] = useState([]);
   useEffect(() => {
-    fetch(url)
+    axios
+      .get(url)
       .then((data) => data.json())
       .then((data) => {
         const photosArray = data.data.user.edge_owner_to_timeline_media.edges;

@@ -130,7 +130,14 @@ const Insta = () => {
   const [insta, setInsta] = useState([]);
   useEffect(() => {
     axios
-      .get(url)
+      .get(url, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+          'Access-Control-Allow-Headers':
+            'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+        },
+      })
       .then((data) => data.json())
       .then((data) => {
         const photosArray = data.data.user.edge_owner_to_timeline_media.edges;

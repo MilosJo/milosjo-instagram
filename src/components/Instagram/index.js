@@ -16,12 +16,11 @@ export default class Instagram extends React.Component {
       // const response = await fetch(
       //   `https://api.instagram.com/oauth/authorize?client_id=4094412503950762&redirect_uri=https://milosjo-instagram.netlify.app&scope=user_profile,user_media&response_type=code`
       // );
+      // const response = await fetch(
+      //   `https://api.instagram.com/oauth/authorize?client_id=4094412503950762&redirect_uri=https://milosjo-instagram.netlify.app&scope=user_profile,user_media&response_type=code`
+      // );
       const response = await fetch(
-        `https://api.instagram.com/oauth/authorize
-        ?client_id=4094412503950762
-        &redirect_uri=https://milosjo-instagram.netlify.app/
-        &scope=user_profile,user_media
-        &response_type=code`
+        `https://www.instagram.com/graphql/query/?query_hash=42323d64886122307be10013ad2dcc44&variables={"id":1264743931,"first":6}`
       );
       const { data } = await response.json();
       console.log('data:', data);
